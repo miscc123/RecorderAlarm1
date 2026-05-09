@@ -26,7 +26,6 @@
         android:textSize="56sp"
         android:textColor="@color/text_primary"
         android:gravity="center"
-        android:fontFamily="@font/mono_font"
         android:layout_marginBottom="24dp" />
 
     <!-- Label -->
