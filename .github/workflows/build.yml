@@ -18,15 +18,22 @@ jobs:
           java-version: '17'
           distribution: 'temurin'
 
-      - name: 🐘 安裝 Gradle
+      - name: 🐘 產生 Gradle Wrapper
+        run: |
+          gradle wrapper --gradle-version 8.2
+        env:
+          GRADLE_VERSION: '8.2'
+
+      - name: 📦 安裝 Gradle
         uses: gradle/actions/setup-gradle@v3
-        with:
-          gradle-version: '8.2'
+
+      - name: 🔑 給 gradlew 執行權限
+        run: chmod +x ./gradlew
 
       - name: 🔨 編譯 Debug APK
-        run: gradle assembleDebug
+        run: ./gradlew assembleDebug
 
-      - name: 📦 上傳 APK
+      - name: 📤 上傳 APK
         uses: actions/upload-artifact@v4
         with:
           name: RecorderAlarm-debug
