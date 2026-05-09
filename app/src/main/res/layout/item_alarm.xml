@@ -34,7 +34,6 @@
                 android:text="08:00"
                 android:textColor="@color/text_primary"
                 android:textSize="42sp"
-                android:fontFamily="@font/mono_font"
                 android:letterSpacing="0.05" />
 
             <TextView
