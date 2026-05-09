@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:background="@color/bg_ring"
+    android:padding="32dp">
+
+    <!-- Pulsing alarm icon -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="⏰"
+        android:textSize="96sp"
+        android:layout_marginBottom="24dp" />
+
+    <!-- Time -->
+    <TextView
+        android:id="@+id/tvRingTime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="08:00"
+        android:textColor="@android:color/white"
+        android:textSize="72sp"
+        android:fontFamily="@font/mono_font"
+        android:layout_marginBottom="8dp" />
+
+    <!-- Label -->
+    <TextView
+        android:id="@+id/tvRingLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="鬧鐘"
+        android:textColor="#CCFFFFFF"
+        android:textSize="24sp"
+        android:layout_marginBottom="64dp" />
+
+    <!-- Dismiss -->
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnDismiss"
+        android:layout_width="240dp"
+        android:layout_height="64dp"
+        android:text="關閉鬧鐘"
+        android:textSize="20sp"
+        app:backgroundTint="@android:color/white"
+        android:textColor="@color/accent_dark"
+        android:layout_marginBottom="16dp" />
+
+    <!-- Snooze -->
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnSnooze"
+        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+        android:layout_width="240dp"
+        android:layout_height="56dp"
+        android:text="再睡 5 分鐘"
+        android:textSize="16sp"
+        app:strokeColor="@android:color/white"
+        android:textColor="@android:color/white" />
+
+</LinearLayout>

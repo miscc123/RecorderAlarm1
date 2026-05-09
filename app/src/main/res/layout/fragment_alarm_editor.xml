@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="24dp"
+    android:background="@color/surface_dark">
+
+    <!-- Handle bar -->
+    <View
+        android:layout_width="40dp"
+        android:layout_height="4dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="16dp"
+        android:background="@color/text_hint"
+        android:backgroundTint="@color/text_hint" />
+
+    <!-- Time display -->
+    <TextView
+        android:id="@+id/tvEditorTime"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="08:00"
+        android:textSize="56sp"
+        android:textColor="@color/text_primary"
+        android:gravity="center"
+        android:fontFamily="@font/mono_font"
+        android:layout_marginBottom="24dp" />
+
+    <!-- Label -->
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="鬧鐘名稱（選填）"
+        app:boxBackgroundColor="@color/bg_dark"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_marginBottom="20dp">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/etLabel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="text"
+            android:textColor="@color/text_primary" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <!-- Repeat days -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="重複"
+        android:textColor="@color/text_secondary"
+        android:textSize="14sp"
+        android:layout_marginBottom="8dp" />
+
+    <com.google.android.material.chip.ChipGroup
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="24dp">
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chipSun"
+            style="@style/Widget.MaterialComponents.Chip.Choice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="日" />
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chipMon"
+            style="@style/Widget.MaterialComponents.Chip.Choice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="一" />
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chipTue"
+            style="@style/Widget.MaterialComponents.Chip.Choice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="二" />
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chipWed"
+            style="@style/Widget.MaterialComponents.Chip.Choice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="三" />
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chipThu"
+            style="@style/Widget.MaterialComponents.Chip.Choice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="四" />
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chipFri"
+            style="@style/Widget.MaterialComponents.Chip.Choice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="五" />
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chipSat"
+            style="@style/Widget.MaterialComponents.Chip.Choice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="六" />
+    </com.google.android.material.chip.ChipGroup>
+
+    <!-- Recording section -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="鈴聲錄音"
+        android:textColor="@color/text_secondary"
+        android:textSize="14sp"
+        android:layout_marginBottom="8dp" />
+
+    <TextView
+        android:id="@+id/tvRecordingStatus"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="尚未錄音（將使用預設鈴聲）"
+        android:textColor="@color/text_hint"
+        android:textSize="13sp"
+        android:layout_marginBottom="12dp" />
+
+    <!-- Record button -->
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnRecord"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:text="🎤 開始錄音"
+        android:textSize="16sp"
+        app:backgroundTint="@color/accent"
+        android:layout_marginBottom="8dp" />
+
+    <!-- Playback button (hidden until recording exists) -->
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnPlayback"
+        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:text="▶ 試聽錄音"
+        app:strokeColor="@color/accent"
+        android:textColor="@color/accent"
+        android:layout_marginBottom="8dp"
+        android:visibility="gone" />
+
+    <!-- Clear recording -->
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnClearRecording"
+        style="@style/Widget.MaterialComponents.Button.TextButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="✕ 移除錄音，使用預設鈴聲"
+        android:textColor="@color/error"
+        android:layout_marginBottom="16dp"
+        android:visibility="gone" />
+
+    <!-- Save button -->
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnSave"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:text="儲存鬧鐘"
+        android:textSize="16sp"
+        app:backgroundTint="@color/success"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="16dp" />
+
+</LinearLayout>
