@@ -184,27 +184,28 @@ class AlarmEditorFragment : BottomSheetDialogFragment() {
         if (isPlaying) stopPlayback() else startPlayback()
     }
 
-    private fun startPlayback() {
-        if (currentRecordingPath.isBlank() || !File(currentRecordingPath).exists()) {
-            Toast.makeText(context, "沒有錄音可以播放", Toast.LENGTH_SHORT).show()
-            return
-        }
-        player = MediaPlayer().apply {
-            try {
-                setDataSource(currentRecordingPath)
-                prepare()
-                start()
-                isPlaying = true
-                binding.btnPlayback.text = "⏹ 停止播放"
-                setOnCompletionListener {
-                    isPlaying = false
-                    binding.btnPlayback.text = "▶ 試聽錄音"
-                }
-            } catch (e: Exception) {
-                Toast.makeText(context, "播放失敗", Toast.LENGTH_SHORT).show()
-            }
-        }
+private fun startPlayback() {
+    if (currentRecordingPath.isBlank() || !File(currentRecordingPath).exists()) {
+        Toast.makeText(context, "沒有錄音可以播放", Toast.LENGTH_SHORT).show()
+        return
     }
+    val mp = MediaPlayer()
+    try {
+        mp.setDataSource(currentRecordingPath)
+        mp.prepare()
+        mp.start()
+        mp.setOnCompletionListener {
+            isPlaying = false
+            binding.btnPlayback.text = "▶ 試聽錄音"
+        }
+        player = mp
+        isPlaying = true
+        binding.btnPlayback.text = "⏹ 停止播放"
+    } catch (e: Exception) {
+        mp.release()
+        Toast.makeText(context, "播放失敗", Toast.LENGTH_SHORT).show()
+    }
+}
 
     private fun stopPlayback() {
         player?.stop()
